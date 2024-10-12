@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "AvantGrade";
+  src: local("AvantGrade"), url("./assets/fonts/AVANTN.ttf") format("truetype");
+}
+
+:root {
+  --black: #0d0d0d;
+  --red: #eb5939;
+  --white: #b7ab98;
+  --color-link: hsla(37, 18%, 66%, 0.5);
+  --color-link-active: #b7ab98;
+  /*-------------------------------*/
+  font-family: AvantGrade, sans-serif, serif;
+}
