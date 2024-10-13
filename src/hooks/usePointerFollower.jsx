@@ -1,8 +1,7 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+
 export default function usePointerFollower(ref, target, config) {
-  const clipPosition = useRef({ x: 0, y: 0 });
   const { x, y } = config;
   // parseInt((100 * e.clientY) / window.innerHeight);
   // parseInt(
@@ -22,11 +21,10 @@ export default function usePointerFollower(ref, target, config) {
           ).toFixed(2)
         );
 
-        clipPosition.current = { xmouse, ymouse };
         gsap.to(target, {
           [x]: `${xmouse}%`,
           [y]: `${ymouse}%`,
-          duration: 0.2,
+          duration: 0.25,
         });
       };
       window.addEventListener("mousemove", mouseHandler);

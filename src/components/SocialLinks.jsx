@@ -1,6 +1,5 @@
 import { cn } from "../utils";
-const svgSharedClassName =
-  "fill-[--white] support-hover:hover:fill-[--black] transition-colors duration-500";
+const svgSharedClassName = "fill-current";
 const socialLinks = [
   {
     el: (
@@ -41,8 +40,29 @@ const socialLinks = [
   },
 ];
 export default function SocialLinks({ className }) {
+  const factor = 1.5;
+  const handleMouseMove = (e) => {
+    const transX = e.nativeEvent.offsetX - e.currentTarget.clientWidth / 2;
+    const transY = e.nativeEvent.offsetY - e.currentTarget.clientHeight / 2;
+    e.currentTarget.style.transform = `translateX(${
+      transX * factor
+    }px) translateY(${transY * factor}px)`;
+  };
+
+  const handleMouseOut = (e) => {
+    e.currentTarget.style.transform = `translateX(0px) translateY(0px)`;
+  };
+
   const social = socialLinks.map((link, i) => (
-    <div key={i} className="w-9 p-2 aspect-square my-3">
+    <div
+      key={i}
+      className="cusror-pointer support-hover:hover:text-[--black] text-[--white] w-8 p-2 aspect-square my-3 transition-transform duration-500"
+      style={{
+        transitionTimingFunction: `cubic-bezier(0.33, 1, 0.68, 1)`,
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseOut={handleMouseOut}
+    >
       <a href={link.to} target="_blanck">
         {link.el}
       </a>
