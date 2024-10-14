@@ -10,6 +10,8 @@
 :root {
   --black: #0d0d0d;
   --red: #eb5939;
+  --light-red: hsla(0, 100%, 50%, 0.5);
+  --light-white: hsl(0, 50%, 100%, 0.2);
   --white: #b7ab98;
   --color-link: hsla(37, 18%, 66%, 0.5);
   --color-link-active: #b7ab98;
@@ -17,3 +19,46 @@
   font-family: AvantGrade, sans-serif, serif;
   /*-------------------------------*/
 }
+
+@layer components {
+  .name {
+    @apply text-2xl;
+  }
+  .hero {
+    @apply text-7xl md:text-9xl font-black uppercase;
+  }
+  .section-title {
+    @apply text-base uppercase;
+  }
+
+  /*-------------------------------------------------*/
+  .about-me-container-wrapper {
+    @apply w-full font-black h-[30rem] py-20;
+  }
+  .about-me-container {
+    @apply max-w-[1024px] space-y-8 mx-8 md:mx-16 lg:mx-24;
+  }
+  .about-me-content {
+    @apply text-3xl md:text-5xl;
+  }
+  /*-------------------------------------------------*/
+  .what-i-do-container-wrapper {
+    @apply w-full font-black py-20;
+  }
+  .what-i-do-container {
+    @apply w-full space-y-8;
+  }
+  .what-i-do-padding {
+    @apply px-8 md:px-16 lg:px-24 py-2;
+  }
+  .what-i-do-topic {
+    @apply uppercase font-black text-3xl md:text-5xl lg:text-6xl;
+  }
+  .what-i-do-explan {
+    @apply text-base;
+  }
+}
+
+/* * {
+  border: 1px solid white;
+} */

@@ -1,16 +1,14 @@
 import { myImg } from "../../assets";
-import { hero, aboutMe } from "./constants";
-import { TextReveal } from "../../components";
-import { useTextReveal } from "../../hooks";
-import { useRef } from "react";
+import { hero, aboutMe, whatIDo } from "./constants";
+import {
+  TextRevealWithScroll,
+  HiddenTextReveal,
+  RectSectionClip,
+} from "../../components";
 
+import { useRef } from "react";
 export default function RevealedSection() {
   const revealedSection = useRef(null);
-  useTextReveal(".hero", revealedSection, "lines", {
-    yPercent: 100,
-    ease: "sine",
-    delay: 0.75,
-  });
 
   return (
     <article ref={revealedSection} className="bg-[--black] text-[--white]">
@@ -32,25 +30,60 @@ export default function RevealedSection() {
             decoding="async"
             className="size-full object-cover object-center"
           /> */}
-          <div className="absolute inset-0 text-[--white] flex justify-center items-center flex-col uppercase text-9xl font-extrabold">
-            <div className="text-2xl hero overflow-hidden">
+          <div className="hero absolute inset-0 text-[--white] flex justify-center items-center flex-col ">
+            <HiddenTextReveal className="name">
               {hero.showen.name}
-            </div>
+            </HiddenTextReveal>
             {hero.showen.content.map((p, index) => (
-              <div key={index} className="hero overflow-hidden">
-                {p}
-              </div>
+              <HiddenTextReveal key={index}>{p}</HiddenTextReveal>
             ))}
           </div>
         </div>
       </section>
       <section
-        className="relative h-screen w-full font-extrabold  flex justify-center items-center shadow-[0_-4px_100px_100px_var(--black)]"
+        className="relative before:w-full before:h-5 before:bg-[--black]  before:top-0  before:absolute before:shadow-[0_0_50px_50px_var(--black)] about-me-container-wrapper"
         id="work"
       >
-        <div className="max-w-[1024px] space-y-8 ">
-          <h6 className="uppercase">{aboutMe.title}</h6>
-          <TextReveal>{aboutMe.showen}</TextReveal>
+        <div className="about-me-container">
+          <p className="section-title">{aboutMe.title}</p>
+          <TextRevealWithScroll
+            className="about-me-content"
+            detectionConfig={{
+              start: "clamp(top 80%)",
+              end: "clamp(top 45%)",
+            }}
+          >
+            {aboutMe.showen}
+          </TextRevealWithScroll>
+        </div>
+      </section>
+      <section className="what-i-do-container-wrapper">
+        <div className="what-i-do-container ">
+          <p className="section-title what-i-do-padding">{whatIDo.title}</p>
+          <div className="divide-y-2 divide-[--white]">
+            {whatIDo.content.map((skill, index) => (
+              <RectSectionClip key={index} className="what-i-do-padding">
+                <div className="flex justify-between items-center  flex-col md:flex-row gap-4 md:gap-8 ">
+                  <TextRevealWithScroll
+                    className="what-i-do-topic"
+                    detectionConfig={{
+                      start: "clamp(top 80%)",
+                      end: "clamp(top 45%)",
+                    }}
+                  >
+                    {skill.topic}
+                  </TextRevealWithScroll>
+
+                  <span
+                    className="what-i-do-explan text-center md:text-end"
+                    data-hide="inblack"
+                  >
+                    {skill.explanation}
+                  </span>
+                </div>
+              </RectSectionClip>
+            ))}
+          </div>
         </div>
       </section>
     </article>
