@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useScrollProgress } from "../hooks";
 import { cn } from "../utils";
-export default function TextReveal({
+export default function TextRevealWithScroll({
   children,
   className,
   detectionConfig,

@@ -24,7 +24,7 @@ export default function usePointerFollower(ref, target, config) {
         gsap.to(target, {
           [x]: `${xmouse}%`,
           [y]: `${ymouse}%`,
-          duration: 0.25,
+          duration: 0.3,
         });
       };
       window.addEventListener("mousemove", mouseHandler);

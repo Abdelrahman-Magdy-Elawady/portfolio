@@ -1,14 +1,17 @@
 import { myImg } from "../../assets";
-import { hero, aboutMe, whatIDo } from "./constants";
+import { hero, aboutMe, whatIDo, projects } from "./constants";
 import {
   TextRevealWithScroll,
   HiddenTextReveal,
   RectSectionClip,
+  Projects,
 } from "../../components";
+import { useTransition } from "../../hooks";
 
 import { useRef } from "react";
 export default function RevealedSection() {
   const revealedSection = useRef(null);
+  const { to } = useTransition(revealedSection);
 
   return (
     <article ref={revealedSection} className="bg-[--black] text-[--white]">
@@ -62,27 +65,59 @@ export default function RevealedSection() {
           <p className="section-title what-i-do-padding">{whatIDo.title}</p>
           <div className="divide-y-2 divide-[--white]">
             {whatIDo.content.map((skill, index) => (
-              <RectSectionClip key={index} className="what-i-do-padding">
-                <div className="flex justify-between items-center  flex-col md:flex-row gap-4 md:gap-8 ">
-                  <TextRevealWithScroll
-                    className="what-i-do-topic"
-                    detectionConfig={{
-                      start: "clamp(top 80%)",
-                      end: "clamp(top 45%)",
-                    }}
-                  >
-                    {skill.topic}
-                  </TextRevealWithScroll>
-
-                  <span
-                    className="what-i-do-explan text-center md:text-end"
-                    data-hide="inblack"
-                  >
-                    {skill.explanation}
-                  </span>
-                </div>
-              </RectSectionClip>
+              <RectSectionClip
+                key={index}
+                className="what-i-do-padding"
+                showen={
+                  <div className="flex justify-between items-center  flex-col md:flex-row gap-4 md:gap-8 ">
+                    <TextRevealWithScroll
+                      className="what-i-do-topic"
+                      detectionConfig={{
+                        start: "clamp(top 75%)",
+                        end: "clamp(top 45%)",
+                      }}
+                    >
+                      {skill.topic}
+                    </TextRevealWithScroll>
+                    <span className="what-i-do-explan text-center md:text-end invisible">
+                      {skill.explanation}
+                    </span>
+                  </div>
+                }
+                hidden={
+                  <div className="flex justify-between items-center  flex-col md:flex-row gap-4 md:gap-8 ">
+                    <div className="what-i-do-topic">{skill.topic}</div>
+                    <span className="what-i-do-explan text-center md:text-end">
+                      {skill.explanation}
+                    </span>
+                  </div>
+                }
+              />
             ))}
+          </div>
+        </div>
+      </section>
+      <section
+        className="projects-container-wrapper"
+        onMouseEnter={() => {
+          to(document.documentElement, {
+            "--size": "0",
+            duration: 0.3,
+            ease: "sine",
+          });
+        }}
+        onMouseLeave={() => {
+          to(document.documentElement, {
+            "--size": "20px",
+            duration: 0.3,
+            ease: "sine",
+          });
+        }}
+      >
+        <div className="projects-container">
+          <p className="section-title">{projects.title}</p>
+          <div className="projects-content">
+            <Projects>{projects.content}</Projects>
           </div>
         </div>
       </section>

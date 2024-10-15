@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { hero, aboutMe, whatIDo } from "./constants";
+import { hero, aboutMe, whatIDo, projects } from "./constants";
 import { useTransition } from "../../hooks";
 
 export default function HiddenSection() {
@@ -75,6 +75,19 @@ export default function HiddenSection() {
                     {skill.explanation}
                   </span>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="projects-container-wrapper">
+        <div className="projects-container">
+          <p className="section-title">{projects.title}</p>
+          <div className="projects-content">
+            {projects.content.map((project, i) => (
+              <div key={i} className="py-2">
+                {project.title}
               </div>
             ))}
           </div>

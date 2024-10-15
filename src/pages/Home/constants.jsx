@@ -82,3 +82,33 @@ export const whatIDo = {
     },
   ],
 };
+
+export const projects = {
+  title: "recent work",
+  content: [
+    {
+      title: "burek restaurant",
+      img: "/src/assets/imgs/me.jpg",
+    },
+    {
+      title: "doe donuts",
+      img: "/src/assets/imgs/reel-poster.jpg",
+    },
+    {
+      title: "burek restaurant",
+      img: "/src/assets/imgs/me.jpg",
+    },
+    {
+      title: "doe donuts",
+      img: "/src/assets/imgs/reel-poster.jpg",
+    },
+    {
+      title: "burek restaurant",
+      img: "/src/assets/imgs/me.jpg",
+    },
+    {
+      title: "doe donuts",
+      img: "/src/assets/imgs/reel-poster.jpg",
+    },
+  ],
+};

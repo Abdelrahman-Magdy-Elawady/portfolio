@@ -1,14 +1,18 @@
-import { cn } from "../../utils";
-import { useTransition } from "../../hooks";
+import { cn } from "../utils";
+import { useTransition } from "../hooks";
 import { useRef } from "react";
-import styles from "./styles.module.css";
 
-export default function RectSectionClip({ children, className }) {
+export default function RectSectionClip({
+  className,
+  showen,
+  hidden,
+  ...rest
+}) {
   const ref = useRef(null);
   const { to } = useTransition(ref);
 
   return (
-    <div className="relative isolate" ref={ref}>
+    <div className="relative isolate" ref={ref} {...rest}>
       <div
         onMouseEnter={() => {
           to(".clip", {
@@ -28,18 +32,17 @@ export default function RectSectionClip({ children, className }) {
         <div
           className={cn(
             className,
-            "absolute bg-[--red] text-[--black] top-0  w-full z-10 clip",
-            styles["red-sec"]
+            "absolute bg-[--red] text-[--black] top-0  w-full z-10 clip"
           )}
           style={{
             clipPath: `inset(50% 0 50% 0)`,
           }}
         >
-          {children}
+          {hidden}
         </div>
-        <div className={styles["black-sec"]}>
+        <div>
           <div className={cn(className, "bg-[--black] text-[--white]")}>
-            {children}
+            {showen}
           </div>
         </div>
       </div>

@@ -57,6 +57,16 @@
   .what-i-do-explan {
     @apply text-base;
   }
+  /*----------------------projects---------------------------*/
+  .projects-container-wrapper {
+    @apply w-full font-black  py-40;
+  }
+  .projects-container {
+    @apply space-y-8 mx-8 md:mx-16 lg:mx-24;
+  }
+  .projects-content {
+    @apply text-3xl md:text-5xl uppercase divide-y-2 divide-[--white];
+  }
 }
 
 /* * {
