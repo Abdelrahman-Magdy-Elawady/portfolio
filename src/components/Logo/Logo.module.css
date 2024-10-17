@@ -1,0 +1,14 @@
+.svg-style path {
+  fill: none;
+  stroke: red;
+  stroke-width: 50px;
+  stroke-dasharray: 16936;
+  stroke-dashoffset: -16936;
+  animation: stroke 5s infinite;
+}
+
+@keyframes stroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

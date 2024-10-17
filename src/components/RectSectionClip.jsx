@@ -4,6 +4,7 @@ import { useRef } from "react";
 
 export default function RectSectionClip({
   className,
+  style,
   showen,
   hidden,
   ...rest
@@ -35,13 +36,17 @@ export default function RectSectionClip({
             "absolute bg-[--red] text-[--black] top-0  w-full z-10 clip"
           )}
           style={{
+            ...style,
             clipPath: `inset(50% 0 50% 0)`,
           }}
         >
           {hidden}
         </div>
         <div>
-          <div className={cn(className, "bg-[--black] text-[--white]")}>
+          <div
+            className={cn(className, "bg-[--black] text-[--white]")}
+            style={{ style }}
+          >
             {showen}
           </div>
         </div>

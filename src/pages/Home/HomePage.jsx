@@ -22,8 +22,7 @@ export default function HomePage() {
 
   return (
     <main className="w-full  select-none relative" ref={ref}>
-      <header className="fixed h-screen w-full z-50  grid grid-cols-2 grid-rows-2 pointer-events-none px-2 md:px-8 py-4 md:py-16 before:w-full before:h-12 before:bg-[--black]  before:top-0  before:absolute before:shadow-[0_0_50px_50px_var(--black)] before:-z-10 after:w-full after:h-12 after:bg-[--black]  after:bottom-0  after:absolute after:shadow-[0_0_50px_50px_var(--black)] after:-z-10">
-        <div></div>
+      <header className="fixed h-screen w-full z-50  grid  grid-rows-2 pointer-events-none px-2 md:px-8 py-4 md:py-16 top-shadow bottom-shadow">
         <Navbar
           activeOnEnterSection={activeOnEnterSection}
           links={links}

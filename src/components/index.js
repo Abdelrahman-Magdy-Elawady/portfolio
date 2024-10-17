@@ -5,3 +5,6 @@ export { default as TextRevealWithScroll } from "./TextRevealWithScroll";
 export { default as HiddenTextReveal } from "./HiddenTextReveal";
 export { default as RectSectionClip } from "./RectSectionClip";
 export { default as Projects } from "./Projects";
+export { default as Logo } from "./Logo/Logo";
+export { default as Carousel } from "./Carousel";
+export { default as Skills } from "./Skills";

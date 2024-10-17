@@ -10,8 +10,8 @@ export default function TextRevealWithScroll({
   const ref = useRef(null);
   const progress = useScrollProgress(ref, ".trigger", detectionConfig);
   return (
-    <div className={cn(className)} ref={ref} {...rest}>
-      <div className="trigger text-[--light-white]">
+    <div ref={ref} {...rest}>
+      <div className={cn(className, "trigger text-[--light-white]")}>
         <span
           style={{
             backgroundImage: `linear-gradient(180deg,var(--white),var(--white))`,

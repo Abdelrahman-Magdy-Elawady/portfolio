@@ -1,6 +1,7 @@
 import { useRef } from "react";
-import { hero, aboutMe, whatIDo, projects } from "./constants";
+import { hero, aboutMe, whatIDo, projects, skills } from "./constants";
 import { useTransition } from "../../hooks";
+import { Logo, Skills } from "../../components";
 
 export default function HiddenSection() {
   const hiddenSection = useRef(null);
@@ -34,11 +35,11 @@ export default function HiddenSection() {
             });
           }}
         >
-          <div className="name">{hero.hidden.name}</div>
-          {hero.hidden.content.map((p, index) => (
+          {hero.hidden.map((p, index) => (
             <div key={index}>{p}</div>
           ))}
         </div>
+        <Logo className="absolute top-20  left-0" />
       </section>
       <section className="pointer-events-auto about-me-container-wrapper">
         <div
@@ -82,15 +83,38 @@ export default function HiddenSection() {
       </section>
 
       <section className="projects-container-wrapper">
-        <div className="projects-container">
+        <div className="projects-container inner-padding">
           <p className="section-title">{projects.title}</p>
           <div className="projects-content">
             {projects.content.map((project, i) => (
-              <div key={i} className="py-2">
+              <div key={i} className="inner-padding">
                 {project.title}
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="pointer-events-auto  skills-container-wrapper">
+        <div
+          className="skills-container"
+          onMouseEnter={() => {
+            to(document.documentElement, {
+              "--size": bigCursorSize,
+              duration: 0.3,
+              ease: "sine",
+            });
+          }}
+          onMouseLeave={() => {
+            to(document.documentElement, {
+              "--size": cursorSize,
+              duration: 0.3,
+              ease: "sine",
+            });
+          }}
+        >
+          <p className="section-title inner-padding">{skills.title}</p>
+          <Skills skills={skills.content} className="skills-logos" />
         </div>
       </section>
     </article>

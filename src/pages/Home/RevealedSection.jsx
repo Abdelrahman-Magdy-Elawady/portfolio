@@ -1,10 +1,12 @@
 import { myImg } from "../../assets";
-import { hero, aboutMe, whatIDo, projects } from "./constants";
+import { hero, aboutMe, whatIDo, projects, skills } from "./constants";
 import {
   TextRevealWithScroll,
   HiddenTextReveal,
   RectSectionClip,
   Projects,
+  Logo,
+  Skills,
 } from "../../components";
 import { useTransition } from "../../hooks";
 
@@ -15,7 +17,7 @@ export default function RevealedSection() {
 
   return (
     <article ref={revealedSection} className="bg-[--black] text-[--white]">
-      <section id="about">
+      <section id="about" className="relative">
         <div
           className="h-screen w-full relative isolate heroImg"
           style={{
@@ -34,17 +36,15 @@ export default function RevealedSection() {
             className="size-full object-cover object-center"
           /> */}
           <div className="hero absolute inset-0 text-[--white] flex justify-center items-center flex-col ">
-            <HiddenTextReveal className="name">
-              {hero.showen.name}
-            </HiddenTextReveal>
-            {hero.showen.content.map((p, index) => (
+            {hero.showen.map((p, index) => (
               <HiddenTextReveal key={index}>{p}</HiddenTextReveal>
             ))}
           </div>
         </div>
+        <Logo className="" />
       </section>
       <section
-        className="relative before:w-full before:h-5 before:bg-[--black]  before:top-0  before:absolute before:shadow-[0_0_50px_50px_var(--black)] about-me-container-wrapper"
+        className="relative top-shadow about-me-container-wrapper"
         id="work"
       >
         <div className="about-me-container">
@@ -115,10 +115,17 @@ export default function RevealedSection() {
         }}
       >
         <div className="projects-container">
-          <p className="section-title">{projects.title}</p>
+          <p className="section-title inner-padding">{projects.title}</p>
           <div className="projects-content">
-            <Projects>{projects.content}</Projects>
+            <Projects className="inner-padding">{projects.content}</Projects>
           </div>
+        </div>
+      </section>
+
+      <section className="skills-container-wrapper">
+        <div className="skills-container">
+          <p className="section-title inner-padding">{skills.title}</p>
+          <Skills skills={skills.content} className="skills-logos" />
         </div>
       </section>
     </article>
