@@ -1,7 +1,15 @@
 import { useRef } from "react";
-import { hero, aboutMe, whatIDo, projects, skills } from "./constants";
+import {
+  hero,
+  aboutMe,
+  whatIDo,
+  projects,
+  skills,
+  motivation,
+  contacts,
+} from "./constants";
 import { useTransition } from "../../hooks";
-import { Logo, Skills } from "../../components";
+import { Skills, CurvedText, Projects, MagneticLink } from "../../components";
 
 export default function HiddenSection() {
   const hiddenSection = useRef(null);
@@ -39,7 +47,6 @@ export default function HiddenSection() {
             <div key={index}>{p}</div>
           ))}
         </div>
-        <Logo className="absolute top-20  left-0" />
       </section>
       <section className="pointer-events-auto about-me-container-wrapper">
         <div
@@ -84,13 +91,9 @@ export default function HiddenSection() {
 
       <section className="projects-container-wrapper">
         <div className="projects-container inner-padding">
-          <p className="section-title">{projects.title}</p>
+          <p className="section-title inner-padding">{projects.title}</p>
           <div className="projects-content">
-            {projects.content.map((project, i) => (
-              <div key={i} className="inner-padding">
-                {project.title}
-              </div>
-            ))}
+            <Projects className="inner-padding">{projects.content}</Projects>
           </div>
         </div>
       </section>
@@ -114,7 +117,56 @@ export default function HiddenSection() {
           }}
         >
           <p className="section-title inner-padding">{skills.title}</p>
-          <Skills skills={skills.content} className="skills-logos" />
+          <Skills
+            skills={[...skills.content].reverse()}
+            className="skills-logos"
+          />
+        </div>
+      </section>
+      <section
+        className="pointer-events-auto"
+        onMouseEnter={() => {
+          to(document.documentElement, {
+            "--size": bigCursorSize,
+            duration: 0.3,
+            ease: "sine",
+          });
+        }}
+        onMouseLeave={() => {
+          to(document.documentElement, {
+            "--size": cursorSize,
+            duration: 0.3,
+            ease: "sine",
+          });
+        }}
+      >
+        <CurvedText className="curved-footer">{motivation.hidden}</CurvedText>
+      </section>
+      <section
+        className="contacts-container pointer-events-auto"
+        onMouseEnter={() => {
+          to(document.documentElement, {
+            "--size": "50px",
+            duration: 0.3,
+            ease: "sine",
+          });
+        }}
+        onMouseLeave={() => {
+          to(document.documentElement, {
+            "--size": cursorSize,
+            duration: 0.3,
+            ease: "sine",
+          });
+        }}
+      >
+        <div className="contacts-content">
+          {contacts.map((contact, index) => (
+            <MagneticLink
+              link={contact}
+              key={index}
+              className="contacts-links"
+            />
+          ))}
         </div>
       </section>
     </article>

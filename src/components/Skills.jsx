@@ -1,13 +1,14 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/src/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Skills({ className, skills }) {
   const ref = useRef();
   useGSAP(
     () => {
-      const tl = gsap.timeline({
-        repeat: -1,
-      });
+      const tl = gsap.timeline();
       const svgs = gsap.utils.toArray("svg");
       svgs.forEach((logo) => {
         const tween = gsap.fromTo(
@@ -20,7 +21,7 @@ export default function Skills({ className, skills }) {
             strokeDasharray: 3000,
             strokeDashoffset: 0,
 
-            duration: 1,
+            duration: 0.8,
             ease: "sine",
           }
         );
@@ -38,16 +39,23 @@ export default function Skills({ className, skills }) {
         );
         tl.add(fill);
       });
+      ScrollTrigger.create({
+        trigger: ".parent",
+        animation: tl,
+        toggleActions: "play pause play reset",
+        start: "top bottom",
+        end: "bottom top",
+      });
     },
     { scope: ref }
   );
   return (
     <div className={className} ref={ref}>
-      <div className="flex  flex-wrap justify-center items-center gap-16 text-3xl">
+      <div className="flex  flex-wrap justify-center items-center gap-16  parent">
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="w-full sm:w-auto flex flex-col justify-center items-center gap-2 "
+            className="w-20 sm:w-auto flex flex-col justify-center items-center gap-2 "
           >
             <div className="w-20 h-20 [&_>_svg]:size-full [&_>_svg]:fill-none [&_>_svg]:stroke-current [&_>_svg]:stroke-[15px]">
               {skill.logo}

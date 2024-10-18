@@ -130,10 +130,10 @@ const DesktopDesign = ({ projects, className }) => {
   );
 };
 
-const MobileDesign = ({ projects }) => {
+const MobileDesign = ({ projects, className }) => {
   return (
     <Carousel
-      className="mx-[4vw]"
+      className={className}
       buttonPosition="center"
       styles={{
         button: "bg-[--white]  text-[--black]",

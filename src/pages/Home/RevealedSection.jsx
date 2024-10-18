@@ -1,23 +1,31 @@
 import { myImg } from "../../assets";
-import { hero, aboutMe, whatIDo, projects, skills } from "./constants";
+import {
+  hero,
+  aboutMe,
+  whatIDo,
+  projects,
+  skills,
+  motivation,
+  contacts,
+} from "./constants";
 import {
   TextRevealWithScroll,
   HiddenTextReveal,
   RectSectionClip,
   Projects,
-  Logo,
   Skills,
+  CurvedText,
+  MagneticLink,
 } from "../../components";
 import { useTransition } from "../../hooks";
-
 import { useRef } from "react";
+
 export default function RevealedSection() {
   const revealedSection = useRef(null);
   const { to } = useTransition(revealedSection);
-
   return (
     <article ref={revealedSection} className="bg-[--black] text-[--white]">
-      <section id="about" className="relative">
+      <section className="relative">
         <div
           className="h-screen w-full relative isolate heroImg"
           style={{
@@ -41,11 +49,10 @@ export default function RevealedSection() {
             ))}
           </div>
         </div>
-        <Logo className="" />
       </section>
       <section
         className="relative top-shadow about-me-container-wrapper"
-        id="work"
+        id="about"
       >
         <div className="about-me-container">
           <p className="section-title">{aboutMe.title}</p>
@@ -60,7 +67,8 @@ export default function RevealedSection() {
           </TextRevealWithScroll>
         </div>
       </section>
-      <section className="what-i-do-container-wrapper">
+
+      <section className="what-i-do-container-wrapper" id="what-i-do">
         <div className="what-i-do-container ">
           <p className="section-title what-i-do-padding">{whatIDo.title}</p>
           <div className="divide-y-2 divide-[--white]">
@@ -98,6 +106,7 @@ export default function RevealedSection() {
         </div>
       </section>
       <section
+        id="work"
         className="projects-container-wrapper"
         onMouseEnter={() => {
           to(document.documentElement, {
@@ -114,18 +123,33 @@ export default function RevealedSection() {
           });
         }}
       >
-        <div className="projects-container">
+        <div className="projects-container inner-padding">
           <p className="section-title inner-padding">{projects.title}</p>
           <div className="projects-content">
-            <Projects className="inner-padding">{projects.content}</Projects>
+            <Projects className="inner-padding ">{projects.content}</Projects>
           </div>
         </div>
       </section>
 
-      <section className="skills-container-wrapper">
+      <section className="skills-container-wrapper" id="skills">
         <div className="skills-container">
           <p className="section-title inner-padding">{skills.title}</p>
           <Skills skills={skills.content} className="skills-logos" />
+        </div>
+      </section>
+      <section>
+        <CurvedText className="curved-footer">{motivation.showen}</CurvedText>
+      </section>
+
+      <section className="contacts-container" id="contact">
+        <div className="contacts-content">
+          {contacts.map((contact, index) => (
+            <MagneticLink
+              link={contact}
+              key={index}
+              className="contacts-links"
+            />
+          ))}
         </div>
       </section>
     </article>

@@ -1,10 +1,11 @@
 export { default as Navbar } from "./Navbar";
 export { default as Link } from "./Link";
-export { default as SocialLinks } from "./SocialLinks";
+export { default as MagneticLink } from "./MagneticLink";
 export { default as TextRevealWithScroll } from "./TextRevealWithScroll";
 export { default as HiddenTextReveal } from "./HiddenTextReveal";
 export { default as RectSectionClip } from "./RectSectionClip";
 export { default as Projects } from "./Projects";
-export { default as Logo } from "./Logo/Logo";
 export { default as Carousel } from "./Carousel";
 export { default as Skills } from "./Skills";
+export { default as CurvedText } from "./CurvedText";
+export { default as TextMoveVertical } from "./TextMoveVertical";
