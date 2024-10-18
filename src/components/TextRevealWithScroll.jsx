@@ -17,6 +17,7 @@ export default function TextRevealWithScroll({
             backgroundImage: `linear-gradient(180deg,var(--white),var(--white))`,
             backgroundRepeat: "no-repeat",
             backgroundClip: "text",
+            "-webkit-background-clip": "text",
             backgroundSize: `${progress}% 100%`,
           }}
         >

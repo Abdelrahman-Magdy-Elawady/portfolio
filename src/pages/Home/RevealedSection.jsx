@@ -26,23 +26,14 @@ export default function RevealedSection() {
   return (
     <article ref={revealedSection} className="bg-[--black] text-[--white]">
       <section className="relative">
-        <div
-          className="h-screen w-full relative isolate heroImg"
-          style={{
-            backgroundImage: `url(${myImg})`,
-            backgroundPosition: "center center",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed",
-          }}
-        >
-          {/* <img
+        <div className="h-screen w-full relative isolate heroImg">
+          <img
             src={myImg}
             role="presentation"
             loading="lazy"
             decoding="async"
             className="size-full object-cover object-center"
-          /> */}
+          />
           <div className="hero absolute inset-0 text-[--white] flex justify-center items-center flex-col ">
             {hero.showen.map((p, index) => (
               <HiddenTextReveal key={index}>{p}</HiddenTextReveal>
