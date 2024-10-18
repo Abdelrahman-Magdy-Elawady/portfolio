@@ -15,6 +15,7 @@
   --red: #eb5939;
   --light-red: hsla(0, 100%, 50%, 0.5);
   --light-white: hsl(0, 50%, 100%, 0.2);
+  --light-black: hsl(0, 0%, 0%, 0.6);
   --white: #b7ab98;
   --color-link: hsla(37, 18%, 66%, 0.5);
   --color-link-active: #b7ab98;

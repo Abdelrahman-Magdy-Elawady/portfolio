@@ -45,16 +45,18 @@ export const aboutMe = {
   title: "about me",
   showen: (
     <>
-      I&apos;m
       <span className="text-[--light-red]" key={1}>
-        &thinsp;selectively skilled&thinsp;
+        &thinsp;Hi,I&apos;m AbdelRahman&thinsp;
       </span>
-      , frontend web developer with strong focus on producing high quality &
+      A frontend web developer with strong focus on producing high quality &
       impactful digital experience
     </>
   ),
   hidden: (
     <>
+      <span className="text-[--light-black]" key={1}>
+        &thinsp;Hi,I&apos;m AbdelRahman&thinsp;
+      </span>
       A frotend web developer - with skills that haven&apos;t been replaced by
       A.I (yet) .
     </>
