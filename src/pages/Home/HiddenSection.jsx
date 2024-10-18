@@ -9,7 +9,13 @@ import {
   contacts,
 } from "./constants";
 import { useTransition } from "../../hooks";
-import { Skills, CurvedText, Projects, MagneticLink } from "../../components";
+import {
+  Skills,
+  CurvedText,
+  Projects,
+  MagneticLink,
+  Signature,
+} from "../../components";
 
 export default function HiddenSection() {
   const hiddenSection = useRef(null);
@@ -159,6 +165,7 @@ export default function HiddenSection() {
           });
         }}
       >
+        <Signature />
         <div className="contacts-content">
           {contacts.map((contact, index) => (
             <MagneticLink

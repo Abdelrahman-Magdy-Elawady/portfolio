@@ -16,6 +16,7 @@ import {
   Skills,
   CurvedText,
   MagneticLink,
+  Signature,
 } from "../../components";
 import { useTransition } from "../../hooks";
 import { useRef } from "react";
@@ -133,6 +134,7 @@ export default function RevealedSection() {
       </section>
 
       <section className="contacts-container" id="contact">
+        <Signature />
         <div className="contacts-content">
           {contacts.map((contact, index) => (
             <MagneticLink

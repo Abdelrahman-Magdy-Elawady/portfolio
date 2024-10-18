@@ -9,3 +9,4 @@ export { default as Carousel } from "./Carousel";
 export { default as Skills } from "./Skills";
 export { default as CurvedText } from "./CurvedText";
 export { default as TextMoveVertical } from "./TextMoveVertical";
+export { default as Signature } from "./Signature";
