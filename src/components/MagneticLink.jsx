@@ -8,7 +8,6 @@ export default function MagneticLink({ className, link }) {
       transX * factor
     }px) translateY(${transY * factor}px)`;
   };
-
   const handleMouseOut = (e) => {
     e.currentTarget.style.transform = `translateX(0px) translateY(0px)`;
   };

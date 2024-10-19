@@ -1,4 +1,3 @@
-import { myImg } from "../../assets";
 import {
   hero,
   aboutMe,

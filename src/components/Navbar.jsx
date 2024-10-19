@@ -40,14 +40,11 @@ export default function Navbar({ activeOnEnterSection, links, className }) {
       />
       <div
         className={cn(
-          "flex flex-col md:items-start items-center justify-center gap-4  w-full h-full transition-all duration-700 pt-16  px-4 pb-4 origin-top-right rounded-md pointer-events-auto border-[--white] border-2 ",
+          "flex flex-col md:items-start items-center justify-center gap-4  w-full h-full transition-all duration-700 pt-16  px-4 pb-4 origin-top-right rounded-md pointer-events-auto border-[--white] border-2 bg-[--black]",
           {
             "scale-0": menuClosed,
           }
         )}
-        style={{
-          backdropFilter: `blur(100px)`,
-        }}
         onClick={closeHandler}
       >
         {navLinks}
