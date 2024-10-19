@@ -67,7 +67,7 @@ export default function RevealedSection() {
             {whatIDo.content.map((skill, index) => (
               <RectSectionClip
                 key={index}
-                className="what-i-do-padding"
+                className="what-i-do-padding rounded-md"
                 showen={
                   <div className="flex justify-between items-center  flex-col md:flex-row gap-4 md:gap-8 ">
                     <TextRevealWithScroll

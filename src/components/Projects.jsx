@@ -63,8 +63,8 @@ const DesktopDesign = ({ projects, className }) => {
         onMouseMove={mouseHandler}
         onMouseLeave={leaveHandler}
       >
-        <div className="pointer-events-none imgs-container absolute  overflow-hidden h-0 w-0 z-10 -translate-y-1/2 -translate-x-1/2 rounded-md">
-          <div className="imgs-container-inner h-full w-full">
+        <div className="pointer-events-none imgs-container absolute  overflow-hidden h-0 w-0 z-10 -translate-y-1/2 -translate-x-1/2">
+          <div className="imgs-container-inner h-full w-full isolate">
             {projects.map((project, index) => (
               <div key={index} className="h-full w-full ">
                 <img
@@ -83,7 +83,7 @@ const DesktopDesign = ({ projects, className }) => {
                 translateHandler(index);
               }}
               key={index}
-              className={cn("title-palet", className)}
+              className={cn("title-palet rounded-md", className)}
               showen={
                 <TextRevealWithScroll
                   detectionConfig={{
