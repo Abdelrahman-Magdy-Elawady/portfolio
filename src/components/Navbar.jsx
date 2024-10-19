@@ -28,7 +28,7 @@ export default function Navbar({ activeOnEnterSection, links, className }) {
   return (
     <div
       className={cn(
-        "pointer-events-none flex  flex-col items-end  overscroll-contain fixed  z-50 inset-5 md:left-auto md:bottom-auto md:w-60 ",
+        "pointer-events-none flex  flex-col items-end  overscroll-contain fixed  z-50 inset-5 md:left-auto md:bottom-auto md:w-60 border-[--white]",
         className
       )}
       ref={ref}
