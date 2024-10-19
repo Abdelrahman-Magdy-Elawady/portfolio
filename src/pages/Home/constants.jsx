@@ -92,24 +92,27 @@ export const whatIDo = {
   ],
 };
 /*----------------------------Projects---------------------------- */
+import burekImg from "../../assets/imgs/burek-restaurant";
+import decathlonImg from "../../assets/imgs/decathlon";
+import doeImg from "../../assets/imgs/doe-donuts";
 export const projects = {
   title: "recent work",
   content: [
     {
       title: "burek restaurant",
-      img: "./src/assets/imgs/burek-restaurant.png",
+      img: burekImg,
       gitHub: `https://github.com/Abdelrahman-Magdy-Elawady/burek-restaurant`,
       live: `https://burek-restaurant.vercel.app/`,
     },
     {
       title: "decathlon",
-      img: "./src/assets/imgs/decathlon.png",
+      img: decathlonImg,
       gitHub: `https://github.com/Abdelrahman-Magdy-Elawady/decathlon-landing-page`,
       live: `https://decathlon-landing-page.vercel.app/`,
     },
     {
       title: "doe donuts",
-      img: "./src/assets/imgs/doe-donuts.png",
+      img: doeImg,
       gitHub: `https://github.com/Abdelrahman-Magdy-Elawady/Doe-Donuts`,
       live: `https://doe-donuts.vercel.app/`,
     },
