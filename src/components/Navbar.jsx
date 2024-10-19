@@ -46,7 +46,7 @@ export default function Navbar({ activeOnEnterSection, links, className }) {
           }
         )}
         style={{
-          backdropFilter: `blur(1000px)`,
+          backdropFilter: `blur(100px)`,
         }}
         onClick={closeHandler}
       >
