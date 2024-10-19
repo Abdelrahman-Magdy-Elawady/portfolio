@@ -28,7 +28,7 @@ export default function Navbar({ activeOnEnterSection, links, className }) {
   return (
     <div
       className={cn(
-        "pointer-events-none flex  flex-col items-end  overscroll-contain fixed  z-50 inset-5 md:left-auto md:bottom-auto md:w-60 border-[--white]",
+        "pointer-events-none flex  flex-col items-end  overscroll-contain fixed  z-50 inset-5 md:left-auto md:bottom-auto md:w-60",
         className
       )}
       ref={ref}
@@ -40,7 +40,7 @@ export default function Navbar({ activeOnEnterSection, links, className }) {
       />
       <div
         className={cn(
-          "flex flex-col md:items-start items-center justify-center gap-4  w-full h-full transition-all duration-700 pt-16  px-4 pb-4 origin-top-right rounded-md pointer-events-auto",
+          "flex flex-col md:items-start items-center justify-center gap-4  w-full h-full transition-all duration-700 pt-16  px-4 pb-4 origin-top-right rounded-md pointer-events-auto border-[--white] border-2 ",
           {
             "scale-0": menuClosed,
           }
