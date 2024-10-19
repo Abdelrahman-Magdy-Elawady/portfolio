@@ -1,6 +1,8 @@
 import { cn } from "../utils";
+import { useMediaQuery } from "../hooks";
 
 export default function CurvedText({ children: text, className, ...rest }) {
+  const { isMd } = useMediaQuery();
   return (
     <svg
       className={cn("w-full ", className)}
@@ -16,11 +18,13 @@ export default function CurvedText({ children: text, className, ...rest }) {
       />
 
       <text>
-        {[...Array(3)].map((_, index, arr) => (
+        {[...Array(isMd ? 3 : 2)].map((_, index, arr) => (
           <textPath
             key={index}
             href="#curvy-path"
-            startOffset={offsetEquation(index) + "%"}
+            startOffset={
+              isMd ? offsetEquation(index) + "%" : 25 + 50 * index + "%"
+            }
             textAnchor="middle"
             className={cn("fill-current", {
               "opacity-70": index !== parseInt(arr.length / 2),
