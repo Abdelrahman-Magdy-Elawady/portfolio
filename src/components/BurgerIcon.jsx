@@ -1,39 +1,43 @@
-import { useTransition } from "../hooks";
+import { useTransition, useClickOutside } from "../hooks";
 import { useRef, useState } from "react";
 import { cn } from "../utils";
-export default function BurgerIcon({ toggleMenu, className }) {
+/*------------------------------------------------*/
+const duration = 0.25;
+const y_translate = 10; //halfGap + halfHeight of bar
+/*------------------------------------------------*/
+export default function BurgerIcon({ className, ...rest }) {
   const [opened, setOpened] = useState(false);
   const ref = useRef();
+  useClickOutside(ref, () => {
+    opened && rotateHandler(0, 0);
+    setOpened(false);
+  });
+
   const { to } = useTransition(ref);
-  const rotateHandler = () => {
-    const duration = 0.25;
-    const y_translate = 10; //halfGap + halfHeight of bar
+  /*------------------------------------------*/
+
+  const rotateHandler = (angle, y_translate) => {
+    to("#bar-0", {
+      y: y_translate,
+      rotate: -1 * angle,
+      duration,
+    });
+    to("#bar-1", {
+      y: -y_translate,
+      rotate: 1 * angle,
+      duration,
+    });
+  };
+
+  const clickHandler = () => {
     if (!opened) {
-      to("#bar-0", {
-        y: y_translate,
-        rotate: -45,
-        duration,
-      });
-      to("#bar-1", {
-        y: -y_translate,
-        rotate: 45,
-        duration,
-      });
+      rotateHandler(45, y_translate);
     } else {
-      to("#bar-0", {
-        y: 0,
-        rotate: 0,
-        duration,
-      });
-      to("#bar-1", {
-        y: 0,
-        rotate: 0,
-        duration,
-      });
+      rotateHandler(0, 0);
     }
     setOpened(!opened);
-    toggleMenu();
   };
+
   return (
     <div
       className={cn(
@@ -41,9 +45,10 @@ export default function BurgerIcon({ toggleMenu, className }) {
         className
       )}
       ref={ref}
+      {...rest}
     >
       <div
-        onClick={rotateHandler}
+        onClick={clickHandler}
         className="w-full h-full flex justify-center flex-col items-center gap-4  px-2"
       >
         {[...Array(2)].map((_, index) => (

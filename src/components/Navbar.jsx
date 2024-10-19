@@ -6,13 +6,8 @@ import { useClickOutside } from "../hooks";
 
 export default function Navbar({ activeOnEnterSection, links, className }) {
   const [menuClosed, setMenuClosed] = useState(true);
-  const [resetBurger, setResetIcon] = useState(false);
   const ref = useRef();
-  const closeHandler = () => {
-    setMenuClosed(true);
-    setResetIcon(!resetBurger);
-  };
-  useClickOutside(ref, () => closeHandler());
+  useClickOutside(ref, () => setMenuClosed(true));
   /*--------------------------------------------------*/
   const navLinks = links.map((link, index) => (
     <Link
@@ -34,8 +29,7 @@ export default function Navbar({ activeOnEnterSection, links, className }) {
       ref={ref}
     >
       <BurgerIcon
-        toggleMenu={() => setMenuClosed(!menuClosed)}
-        key={resetBurger}
+        onClick={() => setMenuClosed(!menuClosed)}
         className="absolute z-10 pointer-events-auto"
       />
       <div
@@ -45,7 +39,7 @@ export default function Navbar({ activeOnEnterSection, links, className }) {
             "scale-0": menuClosed,
           }
         )}
-        onClick={closeHandler}
+        onClick={() => setMenuClosed(true)}
       >
         {navLinks}
       </div>
