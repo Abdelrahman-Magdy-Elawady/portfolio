@@ -16,7 +16,7 @@ export default function MagneticLink({ className, link }) {
   return (
     <a
       className={cn(
-        "cusror-pointer support-hover:hover:text-[--black] text-[--white]  aspect-square  transition-transform duration-500 w-8 p-2",
+        "cusror-pointer md:support-hover:hover:text-[--black] text-[--white]  aspect-square  transition-transform duration-500 w-8 p-2",
         className
       )}
       style={{

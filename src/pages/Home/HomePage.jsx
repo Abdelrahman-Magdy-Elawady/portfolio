@@ -1,6 +1,6 @@
 import { sections } from "./constants";
 import { Navbar } from "../../components";
-import { useOnSectionEnter, usePointerFollower } from "../../hooks";
+import { useOnSectionEnter } from "../../hooks";
 import { useRef, useState } from "react";
 import RevealedSection from "./RevealedSection";
 import HiddenSection from "./HiddenSection";
@@ -18,14 +18,13 @@ export default function HomePage() {
     }),
     ref
   );
-  usePointerFollower(ref, document.documentElement, { x: "--x", y: "--y" });
 
   return (
     <main className="w-full select-none relative" ref={ref}>
       <div className="pointer-events-none fixed h-screen w-full z-50  top-shadow bottom-shadow" />
       <Navbar activeOnEnterSection={activeOnEnterSection} links={sections} />
       <RevealedSection />
-      <HiddenSection />
+      <HiddenSection className="hidden md:block" />
     </main>
   );
 }

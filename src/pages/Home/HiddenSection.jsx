@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { cn } from "../../utils";
 import {
   hero,
   aboutMe,
@@ -8,7 +9,7 @@ import {
   motivation,
   contacts,
 } from "./constants";
-import { useTransition } from "../../hooks";
+import { useTransition, usePointerFollower } from "../../hooks";
 import {
   Skills,
   CurvedText,
@@ -17,15 +18,22 @@ import {
   Signature,
 } from "../../components";
 
-export default function HiddenSection() {
+export default function HiddenSection({ className }) {
   const hiddenSection = useRef(null);
   const cursorSize = "20px";
   const bigCursorSize = "200px";
   const { to } = useTransition(hiddenSection);
+  usePointerFollower(hiddenSection, document.documentElement, {
+    x: "--x",
+    y: "--y",
+  });
 
   return (
     <article
-      className="absolute top-0 z-10 w-full text-[--black] bg-[--red] pointer-events-none"
+      className={cn(
+        "absolute top-0 z-10 w-full text-[--black] bg-[--red] pointer-events-none",
+        className
+      )}
       style={{
         clipPath: `circle(var(--size,${cursorSize}) at var(--x,-10%) var(--y,-10%))`,
       }}
