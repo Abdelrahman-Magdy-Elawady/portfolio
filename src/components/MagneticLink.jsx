@@ -1,7 +1,10 @@
 import { cn } from "../utils";
+import { useMediaQuery } from "../hooks";
 export default function MagneticLink({ className, link }) {
+  const { isMd } = useMediaQuery();
   const factor = 2;
   const handleMouseMove = (e) => {
+    if (!isMd) return;
     const transX = e.nativeEvent.offsetX - e.currentTarget.clientWidth / 2;
     const transY = e.nativeEvent.offsetY - e.currentTarget.clientHeight / 2;
     e.currentTarget.style.transform = `translateX(${
@@ -9,6 +12,7 @@ export default function MagneticLink({ className, link }) {
     }px) translateY(${transY * factor}px)`;
   };
   const handleMouseOut = (e) => {
+    if (!isMd) return;
     e.currentTarget.style.transform = `translateX(0px) translateY(0px)`;
   };
 

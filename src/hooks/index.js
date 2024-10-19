@@ -5,3 +5,4 @@ export { default as useScrollProgress } from "./useScrollProgress";
 export { default as useMediaQuery } from "./useMediaQuery";
 export { default as useScrollTo } from "./useScrollTo";
 export { default as useClickOutside } from "./useClickOutside";
+export { default as useGsapRefresh } from "./useGsapRefresh";

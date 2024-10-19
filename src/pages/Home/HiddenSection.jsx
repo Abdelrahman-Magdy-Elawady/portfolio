@@ -27,7 +27,6 @@ export default function HiddenSection({ className }) {
     x: "--x",
     y: "--y",
   });
-  console.log("first");
 
   return (
     <article
