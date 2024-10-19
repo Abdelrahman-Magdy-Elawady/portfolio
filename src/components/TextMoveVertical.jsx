@@ -10,10 +10,29 @@ export default function TextMoveVertical({
   const ref = useRef();
   const { to } = useTransition(ref);
   useEffect(() => {
+    let xPercent = 0;
+    let yPercent = 0;
+    switch (direction) {
+      case "bottomUp":
+        yPercent = "-100";
+        break;
+      case "upDown":
+        yPercent = "100";
+        break;
+      case "rtl":
+        xPercent = "-100";
+        break;
+      case "ltr":
+        xPercent = "100";
+        break;
+      default:
+        xPercent = yPercent = 0;
+    }
     to(".link", {
-      yPercent: direction === "bottomUp" ? "-100" : "100",
+      yPercent,
+      xPercent,
       repeat: -1,
-      duration: 1,
+      duration: 2,
       ease: "sine",
     });
   }, []);
@@ -24,9 +43,11 @@ export default function TextMoveVertical({
         <div className="link relative">
           <div>{children}</div>
           <div
-            className={cn("absolute left-0 opacity-50", {
+            className={cn("absolute left-0 top-0 opacity-50", {
               "top-full": direction === "bottomUp",
               "-top-full": direction === "upDown",
+              "left-full": direction === "rtl",
+              "-left-full": direction === "ltr",
             })}
           >
             {children}

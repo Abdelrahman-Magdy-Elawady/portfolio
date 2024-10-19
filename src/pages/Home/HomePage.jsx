@@ -21,14 +21,9 @@ export default function HomePage() {
   usePointerFollower(ref, document.documentElement, { x: "--x", y: "--y" });
 
   return (
-    <main className="w-full  select-none relative" ref={ref}>
-      <header className="fixed h-screen w-full z-50  grid  grid-rows-2 pointer-events-none px-2 md:px-8 py-4 md:py-16 top-shadow bottom-shadow">
-        <Navbar
-          activeOnEnterSection={activeOnEnterSection}
-          links={sections}
-          className="justify-self-end w-min h-min pointer-events-auto"
-        />
-      </header>
+    <main className="w-full select-none relative" ref={ref}>
+      <div className="pointer-events-none fixed h-screen w-full z-50  top-shadow bottom-shadow" />
+      <Navbar activeOnEnterSection={activeOnEnterSection} links={sections} />
       <RevealedSection />
       <HiddenSection />
     </main>

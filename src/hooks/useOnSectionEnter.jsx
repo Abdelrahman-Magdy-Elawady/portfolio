@@ -9,8 +9,8 @@ export default function useOnSectionEnter(config, ref) {
       config?.forEach((section) => {
         ScrollTrigger.create({
           trigger: section?.target,
-          start: "clamp(top center)",
-          end: "clamp(top top)",
+          start: "top 35%",
+          end: "bottom center",
           onEnter: () => section?.whatToDo(),
           onEnterBack: () => section?.whatToDo(),
         });

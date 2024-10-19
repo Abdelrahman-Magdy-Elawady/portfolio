@@ -129,20 +129,19 @@ export default function RevealedSection() {
           <Skills skills={skills.content} className="skills-logos" />
         </div>
       </section>
-      <section>
+      <section id="contact">
         <CurvedText className="curved-footer">{motivation.showen}</CurvedText>
-      </section>
-
-      <section className="contacts-container" id="contact">
-        <Signature />
-        <div className="contacts-content">
-          {contacts.map((contact, index) => (
-            <MagneticLink
-              link={contact}
-              key={index}
-              className="contacts-links"
-            />
-          ))}
+        <div className="contacts-container">
+          <Signature />
+          <div className="contacts-content">
+            {contacts.map((contact, index) => (
+              <MagneticLink
+                link={contact}
+                key={index}
+                className="contacts-links"
+              />
+            ))}
+          </div>
         </div>
       </section>
     </article>

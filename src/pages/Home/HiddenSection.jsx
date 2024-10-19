@@ -133,25 +133,6 @@ export default function HiddenSection() {
         className="pointer-events-auto"
         onMouseEnter={() => {
           to(document.documentElement, {
-            "--size": bigCursorSize,
-            duration: 0.3,
-            ease: "sine",
-          });
-        }}
-        onMouseLeave={() => {
-          to(document.documentElement, {
-            "--size": cursorSize,
-            duration: 0.3,
-            ease: "sine",
-          });
-        }}
-      >
-        <CurvedText className="curved-footer">{motivation.hidden}</CurvedText>
-      </section>
-      <section
-        className="contacts-container pointer-events-auto"
-        onMouseEnter={() => {
-          to(document.documentElement, {
             "--size": "50px",
             duration: 0.3,
             ease: "sine",
@@ -159,21 +140,24 @@ export default function HiddenSection() {
         }}
         onMouseLeave={() => {
           to(document.documentElement, {
-            "--size": cursorSize,
+            "--size": "20px",
             duration: 0.3,
             ease: "sine",
           });
         }}
       >
-        <Signature />
-        <div className="contacts-content">
-          {contacts.map((contact, index) => (
-            <MagneticLink
-              link={contact}
-              key={index}
-              className="contacts-links"
-            />
-          ))}
+        <CurvedText className="curved-footer">{motivation.hidden}</CurvedText>
+        <div className="contacts-container">
+          <Signature />
+          <div className="contacts-content">
+            {contacts.map((contact, index) => (
+              <MagneticLink
+                link={contact}
+                key={index}
+                className="contacts-links"
+              />
+            ))}
+          </div>
         </div>
       </section>
     </article>

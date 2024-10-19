@@ -27,8 +27,8 @@ export default function usePointerFollower(ref, target, config) {
           duration: 0.3,
         });
       };
-      window.addEventListener("mousemove", mouseHandler);
-      return () => window.removeEventListener("mousemove", mouseHandler);
+      window.addEventListener("pointermove", mouseHandler);
+      return () => window.removeEventListener("pointermove", mouseHandler);
     },
     { scope: ref }
   );

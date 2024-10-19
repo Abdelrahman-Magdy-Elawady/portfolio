@@ -10,3 +10,4 @@ export { default as Skills } from "./Skills";
 export { default as CurvedText } from "./CurvedText";
 export { default as TextMoveVertical } from "./TextMoveVertical";
 export { default as Signature } from "./Signature";
+export { default as BurgerIcon } from "./BurgerIcon";

@@ -18,7 +18,7 @@ export default function Link({ children, to, className, active, ...rest }) {
           scrollTo(window, { duration: 2, scrollTo: to, ease: "power2" })
         }
         className={cn(
-          "text-[--color-link] support-hover:group-hover/link:-translate-y-full transition-transform duration-500 relative p-2",
+          "text-[--color-link] support-hover:group-hover/link:-translate-y-full transition-transform duration-700 relative p-2",
           {
             "-translate-y-full": active,
           }
