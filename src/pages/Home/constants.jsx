@@ -92,9 +92,9 @@ export const whatIDo = {
   ],
 };
 /*----------------------------Projects---------------------------- */
-import burekImg from "../../assets/imgs/burek-restaurant";
-import decathlonImg from "../../assets/imgs/decathlon";
-import doeImg from "../../assets/imgs/doe-donuts";
+import burekImg from "../../assets/imgs/burek-restaurant.png";
+import decathlonImg from "../../assets/imgs/decathlon.png";
+import doeImg from "../../assets/imgs/doe-donuts.png";
 export const projects = {
   title: "recent work",
   content: [
