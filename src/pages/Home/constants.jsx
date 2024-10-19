@@ -97,19 +97,19 @@ export const projects = {
   content: [
     {
       title: "burek restaurant",
-      img: "../../assets/imgs/burek-restaurant.png",
+      img: "./src/assets/imgs/burek-restaurant.png",
       gitHub: `https://github.com/Abdelrahman-Magdy-Elawady/burek-restaurant`,
       live: `https://burek-restaurant.vercel.app/`,
     },
     {
       title: "decathlon",
-      img: "../../assets/imgs/decathlon.png",
+      img: "./src/assets/imgs/decathlon.png",
       gitHub: `https://github.com/Abdelrahman-Magdy-Elawady/decathlon-landing-page`,
       live: `https://decathlon-landing-page.vercel.app/`,
     },
     {
       title: "doe donuts",
-      img: "../../assets/imgs/doe-donuts.png",
+      img: "./src/assets/imgs/doe-donuts.png",
       gitHub: `https://github.com/Abdelrahman-Magdy-Elawady/Doe-Donuts`,
       live: `https://doe-donuts.vercel.app/`,
     },
