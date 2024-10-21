@@ -6,6 +6,7 @@
   font-family: "Avant Garde Demi BT";
   font-style: normal;
   font-weight: normal;
+  font-display: swap;
   src: local("Avant Garde Demi BT"),
     url("./assets/fonts/AVGARDD_2.woff") format("woff");
 }
