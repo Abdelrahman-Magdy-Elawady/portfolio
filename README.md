@@ -3,8 +3,15 @@
 ## Table of contents
 
 - [Built with](#built-with)
+- [screen shots](#screen-shots)
 - [Live demo](#live-demo)
 - [author](#author)
+
+### screenShots
+
+![](./src/assets/imgs/github%20thumnails/p-1.png)
+![](./src/assets/imgs/github%20thumnails/p-2.png)
+![](./src/assets/imgs/github%20thumnails/p3.png)
 
 ### Built with
 
