@@ -131,10 +131,7 @@ export default function HiddenSection({ className }) {
           }}
         >
           <p className="section-title inner-padding">{skills.title}</p>
-          <Skills
-            skills={[...skills.content].reverse()}
-            className="skills-logos"
-          />
+          <Skills skills={skills.content} className="skills-logos" />
         </div>
       </section>
       <section
