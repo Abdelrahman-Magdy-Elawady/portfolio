@@ -15,6 +15,8 @@ export default function TextMoveVertical({
       const tl = gsap.timeline({
         repeat: -1,
         yoyo: false,
+        delay: 1,
+        repeatDelay: 1,
       });
       tl.to(".original-char", {
         stagger: 0.03,
