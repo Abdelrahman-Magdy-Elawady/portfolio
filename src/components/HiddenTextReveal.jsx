@@ -8,7 +8,8 @@ export default function HiddenTextReveal({ children, className }) {
     from(".text-reveal", {
       yPercent: 100,
       delay: 0.75,
-      duration: 0.5,
+      duration: 0.75,
+      opacity: 0,
       ease: "sine",
     });
   }, []);
