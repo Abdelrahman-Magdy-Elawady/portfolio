@@ -5,16 +5,17 @@ export default function CurvedText({ children: text, className, ...rest }) {
   const { isMd } = useMediaQuery();
   return (
     <svg
-      className={cn("w-full ", className)}
-      viewBox="0 0 964.79 150"
+      className={cn("md:w-1/2 mx-auto", className)}
+      viewBox="0 0 324.4 285.3"
       {...rest}
     >
       <path
         id="curvy-path"
         fill="none"
-        stroke="none"
-        d="M0.05,150c102.24-9.81,181.61-21.58,235.05-33.05c124.52-26.74,154.51-46.43,236.86-46.79
-        c67.52-0.3,95.83,12.73,209.9,36.03C746.5,119.4,842.46,136.68,964.74,150"
+        stroke="#fff1"
+        d="M0.5,90.7C52,3.4,164.6-25.5,251.8,26c69.8,41.2,93,131.3,51.7,201.1c-33,55.8-105,74.4-160.9,41.4
+        c-44.7-26.4-59.5-84-33.1-128.7c21.1-35.7,67.2-47.6,102.9-26.5c28.6,16.9,38.1,53.8,21.2,82.4c-13.5,22.9-43,30.5-65.9,17
+        c-18.3-10.8-24.4-34.4-13.6-52.7c8.6-14.6,27.5-19.5,42.2-10.8c11.7,6.9,15.6,22,8.7,33.7"
       />
 
       <text>
@@ -22,23 +23,17 @@ export default function CurvedText({ children: text, className, ...rest }) {
           <textPath
             key={index}
             href="#curvy-path"
-            startOffset={
-              isMd ? offsetEquation(index) + "%" : 25 + 50 * index + "%"
-            }
+            startOffset={isMd ? 25 * index + 12 + "%" : 17 + 40 * index + "%"}
             textAnchor="middle"
+            dominantBaseline="hanging"
             className={cn("fill-current", {
               "opacity-70": index !== parseInt(arr.length / 2),
             })}
           >
             {text}
-            {index !== arr.length - 1 && ","}
           </textPath>
         ))}
       </text>
     </svg>
   );
 }
-
-const offsetEquation = (index) => {
-  return index % 2 === 0 ? 30 * index + 20 : 25 * index + 25;
-};
